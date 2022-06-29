@@ -1,8 +1,13 @@
 
 import React, {useEffect, useState} from 'react';
+
 import './App.css';
 
 function App() {
+  
+  const idData = [1,2,3,4,5,6,7,8,9,10
+  ];
+
   
   // Todoリストのstateを定義
   const [todos, setTodos] = useState([]);
@@ -11,7 +16,7 @@ function App() {
   const [todoTitle, setTodoTitle] = useState('');
   
   // 新しく作成するtodoに持たせるidをstateで管理
-  const [todoId, setTodoId] = useState(0);
+  const [todoIds, setTodoIds] = useState(idData);
   
   // 編集画面に切り替えるためのstateを定義
   const [isEditable, setIsEditable] = useState(false);
@@ -27,7 +32,9 @@ function App() {
   // フィルターのstateを定義
   const[filter, setFilter] = useState('notStarted');
 
-  const[filterId, setFilterId] = useState('すべて');
+  const[filterId, setFilterId] = useState("すべて");
+
+  const[filterDate, setFilterDate] = useState("すべて");
 
   // 絞り込まれたtodoリストのstateを定義
   const[filteredTodos, setFilteredTodos] = useState([]);
@@ -40,8 +47,8 @@ function App() {
 
   // ボタンを押すと新しいtodoがtodoリストに追加される
   const handleAddTodo = () => {
-    setTodos([...todos, {id: todoId,title: todoTitle,date: newDate, status: 'notStarted'}]);
-    setTodoId(todoId + 1);
+    setTodos([...todos, {id: todoIds,title: todoTitle,date: newDate, status: 'notStarted'}]);
+    setTodoIds(todoIds + 1);
     setTodoTitle('');
     setNewDate('');
   };
@@ -107,27 +114,18 @@ function App() {
       };
       filteringTodos();
     },[filter, todos]);
-    
+
     useEffect(() => {
-      const filteringTodos = () => {
-        switch (filterId) {
-          case '1':
-            setFilteredTodos(todos.filter((todo) => todo.id + 1  === '1'));
-            break;
-          
-          case '2':
-            setFilteredTodos(todos.filter((todo) => todo.id + 2 === '2'));
-            break;
-          case '3':
-            setFilteredTodos(todos.filter((todo) => todo.id + 3 === '3'));
-            break;
-          
-          default:
-            setFilteredTodos(todos);
-        };
-      };
-      filteringTodos();
-    },[filterId, todos]);
+      const newIds = todoIds.filter((todoId) => {
+        return (
+          todoIds.indexOf(todos) !== -1 
+        );
+      });
+      setFilterId(newIds); //変更
+    }, [todos]);
+  
+    
+    
 
   return (
     <>
@@ -157,12 +155,12 @@ function App() {
         <label>期限: <input type="date" onChange={handleDateChanges}/></label>
         <select onChange={(e) =>setFilterId(e.target.value)}>
           <option value="idAll">ID:すべて</option>
-          <option value='1'>ID:1</option>
-          <option value='2'>ID:2</option>
-          <option value='3'>ID:3</option>
+          
           
         </select>
-        <select>期限:</select>
+        <select>
+          <option value="dateAll">期限:すべて</option>
+        </select>
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="all">すべて</option>
           <option value="notStarted">未着手</option>
@@ -193,6 +191,7 @@ function App() {
       </ul>
     </>
   )
+  
 }
 
 export default App;
