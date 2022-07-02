@@ -1,0 +1,203 @@
+body {
+  font-family: monospace;
+}
+
+input {
+  border-radius: 16px;
+  border: 1px solid gray;
+  padding: 6px 16px;
+  outline: none;
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+}
+
+button:hover {
+  background-color: #368cbf;
+  color: #fff;
+  cursor: pointer;
+}
+
+li {
+  margin-right: 8px;
+  list-style: none;
+}
+
+.input-area {
+  background-color: #cfe0f9;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px;
+  text-align: center;
+}
+
+
+
+.filter-area {
+  background-color: #52948b;
+  min-height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.todo-area {
+  min-height: 30px;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.edit-area {
+  background-color: #B58AA5;
+  min-height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  color: black;
+  background-color: #e2f2d5;
+  padding: 3px;
+  font-size: 20px;
+}
+
+.list-row {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.date-limit {
+  margin-left: 16px;
+}
+
+.date-limitfilter {
+  margin-left: 16px;
+  border-radius: 6px;
+}
+
+.status-filter {
+  margin-left: 6px;
+  border-radius: 6px;
+}
+
+.add-button {
+  background-color: #368cbf;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #1499d3;
+}
+
+.edit-button {
+  background-color: #3f3f3f;
+  color: white;
+  margin-left: 3px;
+}
+
+.edit-button:hover {
+  background-color: #C0BCB6;
+  color: black;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #e0474c;
+  color: white;
+  margin-left: 3px;
+}
+
+.delete-button:hover {
+  background-color: #F05D5E;
+  cursor: pointer;
+}
+
+.editsave-button {
+  background-color: #91C499;
+  margin-left: 4px;
+}
+
+.editsave-button:hover {
+  background-color: #C6E7CE;
+  color: black;
+  margin-left: 4px;
+}
+
+.cancel-button {
+  margin-left: 4px;
+}
+
+.cancel-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.id-text {
+  font-size: 16px;
+}
+
+.title-text {
+  font-size: 16px;
+}
+
+.date-text {
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.status-box {
+  margin-left: 4px;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .input-area {
+    width: 100%;
+    min-height: 64px;
+  }
+
+  .filter-area {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  .todo-area {
+    width: 100%;
+  }
+
+  .date-limit {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .limit-text {
+    margin: 6px 6px 0 0;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .date-limitfilter {
+    margin-top: 5px;
+  }
+
+  .status-filter {
+    margin-top: 5px;
+  }
+  
+}
